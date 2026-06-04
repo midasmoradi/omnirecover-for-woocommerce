@@ -1,6 +1,7 @@
 # Dependencies (install locally; not shipped to WordPress.org)
 /vendor/
 /node_modules/
+package-lock.json
 
 # Build / IDE
 *.log

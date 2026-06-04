@@ -1,10 +1,11 @@
 <?php
 /**
  * Plugin Name: OmniRecover for WooCommerce
- * Plugin URI: https://example.com/omnirecover-for-woocommerce
+ * Plugin URI: https://github.com/midasmoradi/omnirecover-for-woocommerce
  * Description: Multi-channel abandoned cart recovery and sales automation for WooCommerce (Email, WhatsApp, Telegram, SMS).
  * Version: 0.1.0
- * Author: OmniRecover
+ * Author: Midas Moradi
+ * Author URI: https://github.com/midasmoradi
  * Requires at least: 6.0
  * Requires PHP: 7.4
  * WC requires at least: 8.0
@@ -103,7 +104,7 @@ register_activation_hook(
 			wp_die( esc_html__( 'OmniRecover requires WooCommerce.', 'omnirecover-for-woocommerce' ) );
 		}
 		if ( ! class_exists( \OmniRecover\WooCommerce\Install\Activator::class ) ) {
-			wp_die( esc_html__( 'OmniRecover: run composer install in the plugin directory.', 'omnirecover-for-woocommerce' ) );
+			wp_die( esc_html__( 'OmniRecover could not load. Re-upload the plugin from the official release.', 'omnirecover-for-woocommerce' ) );
 		}
 		\OmniRecover\WooCommerce\Install\Activator::activate();
 	}

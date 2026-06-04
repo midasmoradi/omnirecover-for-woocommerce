@@ -1,0 +1,16 @@
+# Files excluded from WordPress.org plugin zip (use when building releases).
+.git
+.gitignore
+.distignore
+.github
+node_modules
+vendor
+src
+package.json
+composer.json
+composer.lock
+phpcs.xml.dist
+README.md
+*.log
+.env
+.env.*
