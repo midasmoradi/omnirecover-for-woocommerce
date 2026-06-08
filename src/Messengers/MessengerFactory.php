@@ -48,7 +48,7 @@ class MessengerFactory {
 		}
 
 		$active = isset( $settings['active_channel'] ) ? (string) $settings['active_channel'] : 'email';
-		$single  = $this->build_single( $settings, $active );
+		$single = $this->build_single( $settings, $active );
 		return $single ? $single : new EmailMessenger();
 	}
 
@@ -63,7 +63,7 @@ class MessengerFactory {
 		switch ( $channel ) {
 			case 'whatsapp':
 				$inst = isset( $settings['ultramsg_instance'] ) ? (string) $settings['ultramsg_instance'] : '';
-				$tok   = isset( $settings['ultramsg_token'] ) ? (string) $settings['ultramsg_token'] : '';
+				$tok  = isset( $settings['ultramsg_token'] ) ? (string) $settings['ultramsg_token'] : '';
 				return new WhatsAppUltraMsgMessenger( $inst, $tok );
 			case 'telegram':
 				$tok = isset( $settings['telegram_bot_token'] ) ? (string) $settings['telegram_bot_token'] : '';

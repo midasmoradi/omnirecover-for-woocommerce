@@ -98,7 +98,7 @@ class CartWatcher {
 		$customer    = WC()->customer;
 		$email       = $customer ? $customer->get_billing_email() : '';
 		if ( ! $email && is_user_logged_in() ) {
-			$user = wp_get_current_user();
+			$user  = wp_get_current_user();
 			$email = $user ? $user->user_email : '';
 		}
 		$phone = $customer ? $customer->get_billing_phone() : '';
@@ -159,9 +159,9 @@ class CartWatcher {
 		$this->repo->update(
 			$recovery_id,
 			array(
-				'status'        => 'scheduled',
-				'current_step'  => 0,
-				'campaign_id'   => null,
+				'status'            => 'scheduled',
+				'current_step'      => 0,
+				'campaign_id'       => null,
 				'scheduled_actions' => wp_json_encode( array( 'group' => $this->action_group( $recovery_id ) ) ),
 			)
 		);
@@ -184,7 +184,7 @@ class CartWatcher {
 	 */
 	private function resolve_steps_for_scheduling() {
 		$settings = $this->settings();
-		$delay     = isset( $settings['abandon_delay_minutes'] ) ? (int) $settings['abandon_delay_minutes'] : 120;
+		$delay    = isset( $settings['abandon_delay_minutes'] ) ? (int) $settings['abandon_delay_minutes'] : 120;
 
 		if ( ! Capabilities::instance()->can_drip_campaigns() ) {
 			return array(

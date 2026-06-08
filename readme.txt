@@ -4,7 +4,7 @@ Tags: woocommerce, abandoned cart, email, whatsapp, telegram, sms
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 0.1.0
+Stable tag: 0.1.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -36,6 +36,9 @@ Source code and releases: https://github.com/midasmoradi/omnirecover-for-woocomm
 Add a filter `omnirecover_fs_init_args` returning your Freemius `id`, `public_key`, and other `fs_dynamic_init` fields, and install the Freemius SDK under `vendor/freemius/wordpress-sdk/`.
 
 == Changelog ==
+
+= 0.1.1 =
+* Repository standards: CI, documentation, architecture README.
 
 = 0.1.0 =
 * Initial release.

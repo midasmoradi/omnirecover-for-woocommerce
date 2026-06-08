@@ -95,9 +95,9 @@ class AdminMenu {
 			'omnirecover-admin',
 			'omnirecoverAdmin',
 			array(
-				'restRoot'       => esc_url_raw( rest_url() ),
-				'nonce'          => wp_create_nonce( 'wp_rest' ),
-				'capabilities'   => array(
+				'restRoot'     => esc_url_raw( rest_url() ),
+				'nonce'        => wp_create_nonce( 'wp_rest' ),
+				'capabilities' => array(
 					'isPro' => \OmniRecover\WooCommerce\Services\Capabilities::instance()->is_pro(),
 				),
 			)

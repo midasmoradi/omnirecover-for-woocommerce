@@ -33,7 +33,7 @@ class SendResult {
 	 * @param string $error_message Error.
 	 */
 	public function __construct( $success, $error_message = '' ) {
-		$this->success         = (bool) $success;
+		$this->success       = (bool) $success;
 		$this->error_message = (string) $error_message;
 	}
 }

@@ -134,11 +134,11 @@ class Api {
 	 * @return array
 	 */
 	private function sanitize_settings( array $in ) {
-		$out = (array) get_option( 'omnirecover_settings', array() );
+		$out  = (array) get_option( 'omnirecover_settings', array() );
 		$caps = Capabilities::instance();
 
-		$allowed_channels = array( 'email', 'whatsapp', 'telegram', 'sms' );
-		$ch               = isset( $in['active_channel'] ) ? (string) $in['active_channel'] : 'email';
+		$allowed_channels      = array( 'email', 'whatsapp', 'telegram', 'sms' );
+		$ch                    = isset( $in['active_channel'] ) ? (string) $in['active_channel'] : 'email';
 		$out['active_channel'] = in_array( $ch, $allowed_channels, true ) ? $ch : 'email';
 
 		if ( isset( $in['abandon_delay_minutes'] ) ) {
@@ -306,7 +306,7 @@ class Api {
 		$steps = isset( $params['steps'] ) && is_array( $params['steps'] ) ? $params['steps'] : array();
 		$id    = isset( $params['id'] ) ? (int) $params['id'] : 0;
 		$svc   = new CampaignService();
-		$newId = $svc->save_campaign( $name, $steps, $id );
-		return array( 'id' => (int) $newId );
+		$new_id = $svc->save_campaign( $name, $steps, $id );
+		return array( 'id' => (int) $new_id );
 	}
 }

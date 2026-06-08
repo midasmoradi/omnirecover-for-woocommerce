@@ -3,7 +3,7 @@
  * Plugin Name: OmniRecover for WooCommerce
  * Plugin URI: https://github.com/midasmoradi/omnirecover-for-woocommerce
  * Description: Multi-channel abandoned cart recovery and sales automation for WooCommerce (Email, WhatsApp, Telegram, SMS).
- * Version: 0.1.0
+ * Version: 0.1.1
  * Author: Midas Moradi
  * Author URI: https://github.com/midasmoradi
  * Requires at least: 6.0
@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'OMNIRECOVER_VERSION', '0.1.0' );
+define( 'OMNIRECOVER_VERSION', '0.1.1' );
 define( 'OMNIRECOVER_FILE', __FILE__ );
 define( 'OMNIRECOVER_PATH', plugin_dir_path( __FILE__ ) );
 define( 'OMNIRECOVER_URL', plugin_dir_url( __FILE__ ) );

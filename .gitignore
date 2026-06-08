@@ -18,3 +18,6 @@ vendor/squizlabs/php_codesniffer/CodeSniffer.conf
 # Env / secrets
 .env
 .env.*
+
+# Release artifacts (upload to GitHub Releases, not git)
+/releases/*.zip

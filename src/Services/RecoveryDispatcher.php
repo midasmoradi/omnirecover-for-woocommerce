@@ -79,9 +79,9 @@ class RecoveryDispatcher {
 			$coupon = new CouponService();
 			$code   = $coupon->create_recovery_coupon(
 				array(
-					'percent'           => (float) $step_rule['coupon_percent'],
-					'expires_in_hours'  => isset( $step_rule['coupon_hours'] ) ? (int) $step_rule['coupon_hours'] : 2,
-					'prefix'            => isset( $step_rule['coupon_prefix'] ) ? (string) $step_rule['coupon_prefix'] : 'BACK',
+					'percent'          => (float) $step_rule['coupon_percent'],
+					'expires_in_hours' => isset( $step_rule['coupon_hours'] ) ? (int) $step_rule['coupon_hours'] : 2,
+					'prefix'           => isset( $step_rule['coupon_prefix'] ) ? (string) $step_rule['coupon_prefix'] : 'BACK',
 				)
 			);
 			if ( ! is_wp_error( $code ) ) {
@@ -122,17 +122,17 @@ class RecoveryDispatcher {
 		$factory   = new MessengerFactory();
 		$messenger = $factory->build_for_recovery( $settings );
 
-		$active         = isset( $settings['active_channel'] ) ? (string) $settings['active_channel'] : 'email';
-		$body_template  = $this->pick_body_template( $settings, $active, $messenger->get_channel() );
-		$body           = $renderer->render( $body_template, $context );
+		$active        = isset( $settings['active_channel'] ) ? (string) $settings['active_channel'] : 'email';
+		$body_template = $this->pick_body_template( $settings, $active, $messenger->get_channel() );
+		$body          = $renderer->render( $body_template, $context );
 
 		$message = new Message(
 			array(
-				'body'                 => $body,
-				'subject'              => $renderer->render( isset( $settings['email_subject'] ) ? (string) $settings['email_subject'] : '', $context ),
-				'to_email'             => (string) $row->customer_email,
-				'to_phone'             => (string) $row->phone,
-				'to_telegram_chat_id'  => (string) $row->telegram_chat_id,
+				'body'                => $body,
+				'subject'             => $renderer->render( isset( $settings['email_subject'] ) ? (string) $settings['email_subject'] : '', $context ),
+				'to_email'            => (string) $row->customer_email,
+				'to_phone'            => (string) $row->phone,
+				'to_telegram_chat_id' => (string) $row->telegram_chat_id,
 			)
 		);
 
@@ -216,16 +216,16 @@ class RecoveryDispatcher {
 			);
 		}
 		$data = array(
-			'user_id'        => $order->get_user_id(),
-			'session_key'    => 'manual-' . $order->get_id(),
-			'customer_email' => $order->get_billing_email(),
-			'phone'          => $order->get_billing_phone(),
+			'user_id'          => $order->get_user_id(),
+			'session_key'      => 'manual-' . $order->get_id(),
+			'customer_email'   => $order->get_billing_email(),
+			'phone'            => $order->get_billing_phone(),
 			'telegram_chat_id' => (string) $order->get_meta( '_omnirecover_telegram_chat_id' ),
-			'cart_hash'      => '',
-			'cart_snapshot'  => wp_json_encode( $snapshot ),
-			'status'         => 'pending',
+			'cart_hash'        => '',
+			'cart_snapshot'    => wp_json_encode( $snapshot ),
+			'status'           => 'pending',
 		);
-		$id = $this->repo->upsert_for_session( $data );
+		$id   = $this->repo->upsert_for_session( $data );
 		if ( ! $id ) {
 			return;
 		}

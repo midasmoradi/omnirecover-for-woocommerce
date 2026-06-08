@@ -1,9 +1,15 @@
 {
-	"name": "omnirecover/woocommerce",
-	"version": "0.1.0",
+	"name": "midasmoradi/omnirecover-for-woocommerce",
+	"version": "0.1.1",
 	"description": "Multi-channel abandoned cart recovery for WooCommerce",
 	"type": "wordpress-plugin",
 	"license": "GPL-2.0-or-later",
+	"authors": [
+		{
+			"name": "Midas Moradi",
+			"homepage": "https://github.com/midasmoradi"
+		}
+	],
 	"require": {
 		"php": ">=7.4"
 	},
@@ -21,6 +27,11 @@
 	"config": {
 		"allow-plugins": {
 			"dealerdirect/phpcodesniffer-composer-installer": true
-		}
+		},
+		"sort-packages": true
+	},
+	"scripts": {
+		"phpcs": "phpcs --warning-severity=0",
+		"phpcbf": "phpcbf"
 	}
 }

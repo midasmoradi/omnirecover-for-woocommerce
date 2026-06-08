@@ -55,7 +55,7 @@ class WhatsAppUltraMsgMessenger implements MessengerInterface {
 		if ( strlen( $phone ) < 8 ) {
 			return new SendResult( false, 'invalid_phone' );
 		}
-		$url = sprintf(
+		$url  = sprintf(
 			'https://api.ultramsg.com/%s/messages/chat',
 			rawurlencode( $this->instance )
 		);
@@ -64,9 +64,9 @@ class WhatsAppUltraMsgMessenger implements MessengerInterface {
 			'timeout' => 20,
 			'headers' => array( 'Content-Type' => 'application/x-www-form-urlencoded' ),
 			'body'    => array(
-				'token'   => $this->token,
-				'to'      => $phone,
-				'body'    => $message->body,
+				'token'    => $this->token,
+				'to'       => $phone,
+				'body'     => $message->body,
 				'priority' => '',
 			),
 		);

@@ -27,7 +27,7 @@ class CouponService {
 		$hours   = isset( $rule['expires_in_hours'] ) ? (int) $rule['expires_in_hours'] : 2;
 		$prefix  = isset( $rule['prefix'] ) ? preg_replace( '/[^A-Z0-9_]/', '', strtoupper( (string) $rule['prefix'] ) ) : 'BACK';
 
-		$code = $prefix . wp_rand( 1000, 9999 ) . wp_rand( 10, 99 );
+		$code   = $prefix . wp_rand( 1000, 9999 ) . wp_rand( 10, 99 );
 		$coupon = new \WC_Coupon();
 		$coupon->set_code( $code );
 		$coupon->set_discount_type( 'percent' );
